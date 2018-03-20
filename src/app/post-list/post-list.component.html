@@ -3,15 +3,18 @@
                 'list-group-item-success': postsLoveIts > 0,
                 'list-group-item-danger': postsLoveIts < 0}">
 
-
     <h3 [ngStyle]="{color: getColor()}">
         {{ postsTitle }}
         <span class="pull-right"><em>{{ createAt }}</em></span>
     </h3>
+
     <p>{{ postsContent }}</p>
+
     <button class="btn btn-success"
             (click)="onAime()">Love it</button>
+
     <button class="btn btn-danger"
             (click)="onAimePas()">Don't love it</button>
+
     Score  ( {{ postsLoveIts }} )
 </li>

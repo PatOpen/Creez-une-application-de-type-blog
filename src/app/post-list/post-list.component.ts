@@ -33,5 +33,4 @@ export class PostListComponent implements OnInit {
           return 'red';
       }
   }
-
 }
