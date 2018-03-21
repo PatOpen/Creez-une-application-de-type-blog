@@ -5,7 +5,7 @@
 
     <h3 [ngStyle]="{color: getColor()}">
         {{ postsTitle }}
-        <span class="pull-right"><em>{{ createAt }}</em></span>
+        <span class="pull-right"><em>{{ createAt | date: 'dd/MM/yy, HH:mm'}}</em></span>
     </h3>
 
     <p>{{ postsContent }}</p>
