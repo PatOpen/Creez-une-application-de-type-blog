@@ -3,11 +3,7 @@
         <div class="col-xs-12">
             <h1>Posts</h1>
             <ul class="list-group">
-                <app-post-list *ngFor="let post of posts"
-                                [postsTitle]="post.title"
-                                [postsContent]="post.content"
-                                [postsLoveIts]="post.loveIts"
-                                [createAt]="post.created_at" ></app-post-list>
+                <app-post-list [posts]="posts"></app-post-list>
             </ul>
         </div>
     </div>

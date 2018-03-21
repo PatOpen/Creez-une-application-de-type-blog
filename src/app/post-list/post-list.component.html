@@ -1,20 +1,5 @@
-
-<li [ngClass]="{'list-group-item': true,
-                'list-group-item-success': postsLoveIts > 0,
-                'list-group-item-danger': postsLoveIts < 0}">
-
-    <h3 [ngStyle]="{color: getColor()}">
-        {{ postsTitle }}
-        <span class="pull-right"><em>{{ createAt | date: 'dd/MM/yy, HH:mm'}}</em></span>
-    </h3>
-
-    <p>{{ postsContent }}</p>
-
-    <button class="btn btn-success"
-            (click)="onAime()">Love it</button>
-
-    <button class="btn btn-danger"
-            (click)="onAimePas()">Don't love it</button>
-
-    Score  ( {{ postsLoveIts }} )
-</li>
+<app-post-list-item *ngFor="let post of posts"
+                    [postsTitle]="post.title"
+                    [postsContent]="post.content"
+                    [postsLoveIts]="post.loveIts"
+                    [createAt]="post.created_at" ></app-post-list-item>
