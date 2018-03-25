@@ -1,38 +1,42 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {PostService} from '../services/post.service';
+import {Post} from '../models/Post.model';
 
 @Component({
   selector: 'app-post-list-item',
   templateUrl: './post-list-item.component.html',
   styleUrls: ['./post-list-item.component.scss']
 })
-export class PostListItemComponent implements OnInit {
+
+export class PostListItemComponent {
 
     @Input() postsTitle: string;
     @Input() postsContent: string;
     @Input() postsLoveIts: number;
-    @Input() createAt: Date;
+    @Input() postsCreateAt: string;
+    @Input() postsIndex: number;
+    @Input() postsId: number;
+    @Input() postIn: Post;
 
-    constructor() { }
+    constructor(private postService: PostService) {}
 
-    ngOnInit() {
+    onAime() {
+        this.postService.onAdore(this.postsIndex) ;
     }
 
-    onAime(){
-        let aime: number = this.postsLoveIts + 1 ;
-        this.postsLoveIts = aime;
+    onAimePas() {
+        this.postService.onDeteste(this.postsIndex) ;
     }
 
-    onAimePas(){
-        let aime: number = this.postsLoveIts - 1 ;
-        this.postsLoveIts = aime;
-    }
-
-    getColor(){
-        if(this.postsLoveIts > 0){
+    getColor() {
+        if (this.postsLoveIts > 0) {
             return 'green';
-        }else if(this.postsLoveIts < 0){
+        } else if (this.postsLoveIts < 0) {
             return 'red';
         }
     }
 
+    onDeletePost(post: Post) {
+        this.postService.removePost(post);
+    }
 }

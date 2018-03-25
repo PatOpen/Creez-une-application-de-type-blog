@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -7,24 +8,15 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-    posts = [
-        {
-            title: 'Mon premier post',
-            content: 'Tout va bien il fait beau, je file à la plage!',
-            loveIts: 0,
-            created_at: new Date()
-        },
-        {
-            title: 'Mon deuxième post',
-            content: 'Arff!! j\'ai pas un sous je vais devoir manger encore des nouilles !',
-            loveIts: 0,
-            created_at: new Date()
-        },
-        {
-            title: 'Mon troisème post',
-            content: 'Je vais boire un café, car j\'ai pas encore fini de bosser.',
-            loveIts: 0,
-            created_at: new Date()
-        }
-    ];
+  constructor() {
+          const config = {
+              apiKey: 'AIzaSyC_2w451MuvVVUYekS8a_9_g8ldRZT7MLQ',
+              authDomain: 'angular-activite.firebaseapp.com',
+              databaseURL: 'https://angular-activite.firebaseio.com',
+              projectId: 'angular-activite',
+              storageBucket: 'angular-activite.appspot.com',
+              messagingSenderId: '178715162341'
+          };
+      firebase.initializeApp(config);
+  }
 }

@@ -1,5 +1,13 @@
-<app-post-list-item *ngFor="let post of posts"
-                    [postsTitle]="post.title"
-                    [postsContent]="post.content"
-                    [postsLoveIts]="post.loveIts"
-                    [createAt]="post.created_at" ></app-post-list-item>
+<div class="col-xs-12">
+    <h1>Posts</h1>
+        <ul class="list-group">
+            <app-post-list-item *ngFor="let post of posts; let i = index"
+                            [postsIndex]="i"
+                            [postsId]="post.id"
+                            [postsTitle]="post.title"
+                            [postsContent]="post.content"
+                            [postsLoveIts]="post.loveIts"
+                            [postsCreateAt]="post.created_at"
+                            [postIn]="post"></app-post-list-item>
+        </ul>
+</div>
